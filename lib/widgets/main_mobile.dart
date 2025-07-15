@@ -20,14 +20,14 @@ class MainMobile extends StatelessWidget {
             shaderCallback: (bounds) {
               return LinearGradient(
                 colors: [
-                  CustomColor.scaffoldBg.withOpacity(0.5),
-                  CustomColor.scaffoldBg.withOpacity(0.5),
+                  CustomColor.scaffoldBg.withOpacity(0.2),
+                  CustomColor.scaffoldBg.withOpacity(0.2),
                 ],
               ).createShader(bounds);
             },
             blendMode: BlendMode.srcATop,
             child: Image.asset(
-              'assets/images/portfolio_main.png',
+              'assets/images/portfolio_main_2.png',
               width: screenWidth,
               height: screenSize.height / 2.3,
             ),

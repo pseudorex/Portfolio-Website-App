@@ -94,13 +94,14 @@ class MainDesktop extends StatelessWidget {
             ),
           ),
 
-          Padding(
-            padding: const EdgeInsets.only(top: 70), // Try 20–50 for fine-tuning
+          Transform.translate(
+            offset: Offset(0, -30), // Move up by 30 pixels
             child: Image.asset(
-              'assets/images/portfolio_main.png',
+              'assets/images/portfolio_main_2.png',
               width: screenWidth / 4,
             ),
           ),
+
 
         ],
       ),

@@ -5,14 +5,20 @@ import 'package:my_portfolio/constants/nav_items.dart';
 import 'package:my_portfolio/constants/skills_items.dart';
 import 'package:my_portfolio/styles/style.dart';
 import 'package:my_portfolio/utils/project_utils.dart';
+import 'package:my_portfolio/widgets/achievements_page_desktop.dart';
+import 'package:my_portfolio/widgets/achievements_page_mobile.dart';
+import 'package:my_portfolio/widgets/contact_section.dart';
+import 'package:my_portfolio/widgets/custom_text_field.dart';
 import 'package:my_portfolio/widgets/drawer_mobile.dart';
 import 'package:my_portfolio/widgets/header_desktop.dart';
 import 'package:my_portfolio/widgets/header_mobile.dart';
 import 'package:my_portfolio/widgets/main_desktop.dart';
 import 'package:my_portfolio/widgets/main_mobile.dart';
+import 'package:my_portfolio/widgets/projects_section.dart';
 import 'package:my_portfolio/widgets/site_logo.dart';
 import 'package:my_portfolio/widgets/skills_desktop.dart';
 import 'package:my_portfolio/widgets/skills_mobile.dart';
+import 'package:my_portfolio/widgets/slider_page.dart';
 
 import '../widgets/project_card.dart';
 import '../widgets/typing_backspace.dart';
@@ -45,7 +51,7 @@ class _HomePageState extends State<HomePage> {
                     scaffoldKey.currentState?.openEndDrawer();
                   },
                   backgroundColor: CustomColor.scaffoldBg,
-                  child: Icon(Icons.menu, color: Colors.white),
+                  child: Icon(color: Colors.white, Icons.menu),
                   mini: true, // Makes it smaller
                 )
               : null,
@@ -53,7 +59,7 @@ class _HomePageState extends State<HomePage> {
 
           body: ListView(
             children: [
-              /*// Main
+              // Main
               if (constraint.maxWidth >= 600)
                 HeaderDesktop()
               else
@@ -108,10 +114,14 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ],
                 ),
-              ),*/
-
+              ),
               // Footer
-              ProjectCard(project: workProjects.first, screenWidth: screenWidth,)
+              ProjectsSection(),
+              if (constraint.maxWidth >= 600)
+                AchievementsPage()
+              else
+                AchievementsPageMobile(),
+              ContactSection(),
             ],
           ),
         );

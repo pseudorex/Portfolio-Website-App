@@ -4,7 +4,7 @@ List<IconData> navIcons = [
   Icons.home,
   Icons.handyman_outlined,
   Icons.apps,
-  Icons.web,
+  Icons.emoji_events,
   Icons.quick_contacts_mail,
 ];
 
@@ -12,6 +12,6 @@ List<String> navTitles = [
   "Home",
   "Skills",
   "Project",
-  "Blog",
+  "Achievements",
   "Contact",
 ];

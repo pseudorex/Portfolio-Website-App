@@ -42,4 +42,25 @@ List<ProjectUtils> workProjects = [
     title: 'jkl',
     subtitile: '101112',
   ),
+  ProjectUtils(
+    image: 'assets/images/project3.jpg',
+    title: 'ghi',
+    subtitile: '789',
+    webLink: 'https://leetcode.com/u/Asmitrex/',
+  ),
+  ProjectUtils(
+    image: 'assets/images/project4.jpg',
+    title: 'jkl',
+    subtitile: '101112',
+  ),ProjectUtils(
+    image: 'assets/images/project3.jpg',
+    title: 'ghi',
+    subtitile: '789',
+    webLink: 'https://leetcode.com/u/Asmitrex/',
+  ),
+  ProjectUtils(
+    image: 'assets/images/project4.jpg',
+    title: 'jkl',
+    subtitile: '101112',
+  ),
 ];
