@@ -1,21 +1,18 @@
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:my_portfolio/constants/colors.dart';
 import 'package:my_portfolio/widgets/typing_backspace.dart';
 
-import '../constants/colors.dart';
-
-// Add this constant at the top of the file or in a separate constants file
 const List<String> ANIMATED_TITLES = [
   'Flutter Developer',
   'Competitive Programmer',
 ];
 
-
 class MainDesktop extends StatelessWidget {
-  const MainDesktop({super.key});
+  final VoidCallback onGetInTouchTap;
+
+  const MainDesktop({super.key, required this.onGetInTouchTap});
 
   @override
-
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
     final screenWidth = screenSize.width;
@@ -29,10 +26,10 @@ class MainDesktop extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsets.only(right: 30), // Adjust this value
+            padding: const EdgeInsets.only(right: 30),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start, // Restore this for text alignment
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   "Hi,\nI'm Asmit Gupta",
@@ -77,7 +74,7 @@ class MainDesktop extends StatelessWidget {
                   width: 270,
                   height: 40,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: onGetInTouchTap,
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.deepPurple,
                     ),
@@ -93,16 +90,13 @@ class MainDesktop extends StatelessWidget {
               ],
             ),
           ),
-
           Transform.translate(
-            offset: Offset(0, -30), // Move up by 30 pixels
+            offset: Offset(0, -30),
             child: Image.asset(
               'assets/images/portfolio_main_2.png',
               width: screenWidth / 4,
             ),
           ),
-
-
         ],
       ),
     );

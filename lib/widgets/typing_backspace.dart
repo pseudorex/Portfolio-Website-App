@@ -38,19 +38,21 @@ class _TypingBackspacingTextState extends State<TypingBackspacingText> {
   void _startTyping() {
     _timer = Timer.periodic(widget.typingSpeed, (timer) {
       if (_currentCharIndex < widget.textList[_currentTextIndex].length) {
+        if (!mounted) return;
         setState(() {
           _displayedText += widget.textList[_currentTextIndex][_currentCharIndex];
           _currentCharIndex++;
         });
       } else {
-        _pauseThenStartBackspacing();
         timer.cancel();
+        _pauseThenStartBackspacing();
       }
     });
   }
 
   void _pauseThenStartBackspacing() {
     Future.delayed(widget.pauseDuration, () {
+      if (!mounted) return;
       _isTyping = false;
       _startBackspacing();
     });
@@ -59,6 +61,7 @@ class _TypingBackspacingTextState extends State<TypingBackspacingText> {
   void _startBackspacing() {
     _timer = Timer.periodic(widget.backspacingSpeed, (timer) {
       if (_displayedText.isNotEmpty) {
+        if (!mounted) return;
         setState(() {
           _displayedText = _displayedText.substring(0, _displayedText.length - 1);
         });

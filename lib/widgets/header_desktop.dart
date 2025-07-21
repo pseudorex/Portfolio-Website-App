@@ -1,13 +1,12 @@
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:my_portfolio/constants/colors.dart';
+import 'package:my_portfolio/constants/nav_items.dart';
 import 'package:my_portfolio/styles/style.dart';
 import 'package:my_portfolio/widgets/site_logo.dart';
 
-import '../constants/colors.dart';
-import '../constants/nav_items.dart';
-
 class HeaderDesktop extends StatefulWidget {
-  const HeaderDesktop({super.key});
+  const HeaderDesktop({super.key, required this.onTapMenuOpt});
+  final Function(int) onTapMenuOpt;
 
   @override
   State<HeaderDesktop> createState() => _HeaderDesktopState();
@@ -23,13 +22,11 @@ class _HeaderDesktopState extends State<HeaderDesktop> {
       decoration: HeaderMap,
       child: Row(
         children: [
-          // Name hover effect
           Padding(
             padding: const EdgeInsets.only(left: 20),
-            child: SiteLogo(onTap: () {}),
+            child: SiteLogo(onTap: () => widget.onTapMenuOpt(0)),
           ),
           const Spacer(),
-          // Navigation buttons with custom tooltips
           for (int i = 0; i < navTitles.length; i++)
             Padding(
               padding: const EdgeInsets.only(right: 30),
@@ -46,30 +43,24 @@ class _HeaderDesktopState extends State<HeaderDesktop> {
                     ),
                   ],
                 ),
-                textStyle: TextStyle(
+                textStyle: const TextStyle(
                   color: Colors.white,
                   fontSize: 14,
                   fontWeight: FontWeight.w500,
                   letterSpacing: 0.5,
                 ),
-                padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-                margin: EdgeInsets.only(top: 8),
+                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                margin: const EdgeInsets.only(top: 8),
                 preferBelow: false,
-                // Show above the icon
-                waitDuration: Duration(milliseconds: 300),
-                showDuration: Duration(seconds: 3),
+                waitDuration: const Duration(milliseconds: 300),
+                showDuration: const Duration(seconds: 3),
                 child: IconButton(
-                  onPressed: () {
-                    // Add your navigation logic here
-                    print('Navigating to ${navTitles[i]}');
-                  },
+                  onPressed: () => widget.onTapMenuOpt(i),
                   icon: Icon(
                     navIcons[i],
                     color: CustomColor.whitePrimary,
                     size: 24,
                   ),
-                  tooltip: '',
-                  // Disable default tooltip
                   splashRadius: 20,
                   hoverColor: Colors.white.withOpacity(0.1),
                 ),
